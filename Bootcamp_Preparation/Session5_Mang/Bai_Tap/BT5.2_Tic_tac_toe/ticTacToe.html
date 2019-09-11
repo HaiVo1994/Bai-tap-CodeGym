@@ -13,41 +13,6 @@
     <p id="carogame"></p>
     <input type="button" value="Change Value" onclick="changeValue()">
     
-    <script>
-        let banCaro = document.getElementById("carogame");
-        
-
-        let hienThiBan = [];
-        for (let i = 0; i < 5; i++){
-            hienThiBan[i] = ['.', '.', '.', '.', '.'];
-        }
-
-        function hienThi(){
-            let data = "";
-            for (let i = 0; i<5; i++){
-                data += "<br>";
-                for (let j = 0; j < 5; j++)
-                    data += hienThiBan[i][j] + "&nbsp;&nbsp;";
-            }
-            banCaro.innerHTML = data;
-        }
-
-        let nhap = 'X';
-        function changeValue(){
-            let x = parseInt(prompt("Nhập hàng của số cần thay"));
-            let y = parseInt(prompt("Nhập cột của số cần thay"));
-            nhap = (nhap === 'X') ? 'O' : 'X';
-            if ((x>=1) && (x<=5) && (y>=1) && (y<=5)){
-                hienThiBan[x-1][y-1] = nhap;
-                hienThi();
-            }
-
-            for (let i = 0; i<5; i++){
-                for (let j = 0; j < 5; j++){
-                    
-                }                    
-            }
-        }
-    </script>
+    <script type="text/javascript" src="caro.js"></script>
 </body>
 </html>
