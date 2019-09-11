@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Chuyển ký tự hoa-thường</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        let str = prompt("Nhập chuỗi");
+        let result = [];
+        document.write("Chuỗi đã nhập:" + str + "<br>");
+
+        for (let i=0; i<str.length;i++){
+            if (UPPER.indexOf(str[i]) !== -1){
+                result.push(str[i].toLowerCase());
+            }
+            else if(LOWER.indexOf(str[i]) !== -1){
+                result.push(str[i].toUpperCase());
+            }
+            else
+                result.push(str[i]);
+        }
+        document.write(result.join(''));
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Thao Tác Với Mảng</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <input type="text" id="txtValue"></input>
+    <input type="button" id="btnAdd" value="Add" onclick="add_element_to_array();"></input>
+    <input type="button" id="btnDisplay" value="Display" onclick="display_array();"></input>
+    <div id="result"></div>
+
+    <script>
+        let array = new Array();
+        let x = 0;
+        function add_element_to_array(){
+            let arrayElement = document.getElementById("txtValue").value;
+            array.push(arrayElement);
+            document.getElementById("txtValue").value = "";
+            alert("Element: " + arrayElement + " Added at index " + x);
+            x++;
+        }
+        
+        function display_array(){
+            let resultArray = document.getElementById("result");
+            let arrayValue = "<hr/>";
+            for (let i = 0; i<array.length; i++){
+                arrayValue += "Element " + i + " = " + array[i] + "<br>";
+            }
+            resultArray.innerHTML = arrayValue;
+        }
+    </script>
+</body>
+</html>

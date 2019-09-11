@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Chèn - giữa hai số chẵn</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        let number = prompt("Nhập dãy số");
+        let result = [];
+        //let string = number.toString;
+        for (let i = 0; i<(number.length-1); i++){
+            result.push(number[i]);
+            if((number[i]%2===0) && (number[i+1]%2===0))
+                result.push("-");
+        }
+        document.write(result.join(''));
+    </script>
+</body>
+</html>
