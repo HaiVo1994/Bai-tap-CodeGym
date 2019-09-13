@@ -30,7 +30,9 @@ function changeValue(){
 function checkWinPerson(){
     let person = "";
     let check = false;
-    for (let i = 0; i<5; i++){
+    for (let i = 0; i < 5; i++){
+        if (check)
+            break;
         for (let j = 0; j < 5; j++)
             if ( (hienThiBan[i][j] === 'O') || (hienThiBan[i][j] === 'X')){
                 if ((i>0) && (i<4)){
@@ -48,8 +50,7 @@ function checkWinPerson(){
                 }
                 if (check){
                     person = hienThiBan[i][j];
-                    i = 6;
-                    j = 6;
+                    break;
                 }
             }
         }                    
