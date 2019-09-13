@@ -10,13 +10,16 @@
 </head>
 <body>
     <script>
-        let numberArray = [5,2,6,7,-10,12,-32,23,45,68,331,643,-702,-1111];
+        let nguyenAm = "aeoiu";
+        let dongChu = "regergaervaervarv";
         let count = 0;
-        for (let i=0;i<numberArray.length;i++){
-            if (numberArray[i]<0)
+        for (let i=0;i<dongChu.length;i++){
+            let str = dongChu[i].toLowerCase();
+            let find = nguyenAm.indexOf(str);
+            if (find !=-1)
                 count++;
         }
-        document.write("Số lượng các số nguyên âm trong dãy là: " + count);
+        document.write("Số lượng các số nguyên âm trong chuỗi là: " + count);
     </script>
 </body>
 </html>
