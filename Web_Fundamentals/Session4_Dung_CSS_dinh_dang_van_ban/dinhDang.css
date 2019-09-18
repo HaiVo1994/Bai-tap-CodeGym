@@ -1,0 +1,11 @@
+p{
+    white-space: pre-line;
+    width: 800px;
+    display: inline-block;   
+    text-align: justify;
+}
+span{
+    color: red;
+    font-size: large;
+    border: outset;
+}
