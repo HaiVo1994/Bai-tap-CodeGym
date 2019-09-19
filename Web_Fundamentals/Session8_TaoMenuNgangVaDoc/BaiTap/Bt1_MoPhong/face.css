@@ -1,0 +1,49 @@
+body {
+    margin:0;
+} 
+.navbar{
+    position: fixed;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+    width: 100%;
+    height: 8%;;
+    clear: both;
+}
+ 
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+ 
+.sidebar{
+    position: fixed;
+    width: 12%;
+    height: 100%;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.514);
+    top: 8%;
+    display: block;
+    
+}
+.sidebar a{
+    position: relative;
+    top: 5%;
+    color: white;
+    font-size: 20px;
+    display: block;
+}
+.main {
+    display: block;
+    position: relative;
+    left: 16%;
+    right: 16%;
+    padding: 16px;
+    margin-top: 30px;
+    height: 1500px; /* Used in this example to enable scrolling */
+}
