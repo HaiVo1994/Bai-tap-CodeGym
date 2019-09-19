@@ -1,0 +1,37 @@
+h1{
+    color: blue;
+    font-size:40px;
+    width: 400px;
+    margin-left: 150px;
+}
+table{
+    width: 700px;
+    text-align: center;
+    border-collapse: collapse;
+}
+th, td{
+    width: 100px;
+    font-size: 20px;
+    border: 2px solid silver;
+}
+th.firstTittle, th.firstTittleSunday, th.firstTittleSarturday{
+    color: white;
+}
+th.firstTittle{
+    background-color: yellow;
+}
+th.firstTittleSunday{
+    background-color: red;
+}
+td.sunday, th.secondTittleSunday{
+    color: red;
+}
+th.firstTittleSarturday{
+    background-color: blue;
+}
+td.saturday, th.secondTittleSarturday{
+    color: blue;
+}
+sub{
+    color: black;
+}

@@ -1,0 +1,31 @@
+table{
+    border: dotted;
+    background-color: orange;
+    width: 820px;
+    height: 820px;
+    border-collapse: collapse;
+}
+
+th{
+    width: 20px;
+    height: 20px;
+}
+th.outchess{
+    width: 100px;
+    height: 20px;;
+}
+td.outChess{
+    width: 20px;
+    height: 100px;
+}
+
+td.blackSquare{
+    background-color: black;
+}
+td.whiteSquare{
+    background-color:white;
+}
+td.whiteSquare, td.blackSquare{
+    width: 100px;
+    height: 100px;
+}
