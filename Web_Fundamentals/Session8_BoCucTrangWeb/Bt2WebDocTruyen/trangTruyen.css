@@ -1,0 +1,21 @@
+p{
+    white-space: pre-line;
+    width: 800px;
+    display: inline-block;   
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+p.hiddenThis{
+    display: none;
+}
+
+article.sideIndex{
+    float: left;
+    width: 20%
+}
+
+article.mainNovel{
+    float: left;
+    width: 70%;
+}
