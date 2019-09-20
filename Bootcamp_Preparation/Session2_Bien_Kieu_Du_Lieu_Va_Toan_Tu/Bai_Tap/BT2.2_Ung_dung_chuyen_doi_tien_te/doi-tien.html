@@ -30,7 +30,7 @@
             let from = document.getElementById("fc").value;
             let to = document.getElementById("tc").value;
             
-            let chuyenl = 0;
+            let chuyenl = soLuong;
             let kiemTra = from + '-' + to;
             if (from!=to)
                 switch (kiemTra){
@@ -42,7 +42,7 @@
                         break;
                 }
 
-            document.write("Result: " + chuyenl);
+            document.write("Result: " + chuyenl + to);
         }
     </script>
 </body>
