@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Mobile</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        p{
+            white-space: pre-line;
+            width: 800px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body onload="show()">
+    <div>
+        <p> Điện thoại: <p id="mobile1"></p>
+            Mức pin: <p id="mobile1Battery"></p>
+            <input type="number" id="mobile1BatteryCharger">
+            <input type="button" value="Sạc" id="mobile1Charge">
+
+            Tình trạng: <input type="button" id="mobile1Power" value="">
+
+            Tin nhắn đang soạn thảo: <input type="text" id="mobile1PrepareMessenger">
+            <input type="button" value="Chuẩn Bị Gửi" id="mobile1Prepare">
+            <input type="button" value="Gửi" id="mobile1Send">
+
+            Tin nhắn được gửi tới: <input type="button" value="Nhận" id="mobile1Reiceve">
+            <p id="mobile1ReceivedMessenger"></p>
+
+            Tin nhắn đã gửi đi: <input type="button" value="Xem" id="mobile1Sended">
+            <p id="mobile1SendedMessenger"></p>
+        </p>
+    </div>
+    <div>
+        <p> Điện thoại: <p id="mobile2"></p>
+            Mức pin: <p id="mobile2Battery"></p>
+            <input type="number" id="mobile2BatteryCharger">
+            <input type="button" value="Sạc" id="mobile2Charge">
+
+            Tình trạng: <input type="button" id="mobile2Power" value="">
+
+            Tin nhắn đang soạn thảo: <input type="text" id="mobile2PrepareMessenger">
+            <input type="button" value="Chuẩn Bị Gửi" id="mobile2Prepare">
+            <input type="button" value="Gửi" id="mobile2Send">
+
+            Tin nhắn được gửi tới: <input type="button" value="Nhận" id="mobile2Reiceve">
+            <p id="mobile2ReceivedMessenger"></p>
+
+            Tin nhắn đã gửi đi: <input type="button" value="Xem" id="mobile2Sended">
+            <p id="mobile2SendedMessenger"></p>
+        </p>
+    </div>
+    <script src='Mobile.js'></script>
+</body>
+</html>
