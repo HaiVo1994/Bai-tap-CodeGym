@@ -1,0 +1,36 @@
+#main{
+    width: 300px;
+    height: 1440px;
+    border-color: black;
+    border-style: solid;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+#extra{
+    width: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+img{
+    border-style: solid;
+    padding: 0 auto;
+}
+
+img.barrier, img.gift, img#car{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+}
+
+img#car{
+    border-color: blue;
+}
+img.gift{
+    border-color: yellow;
+}
+img.barrier{
+    border-color: red;
+}
