@@ -31,7 +31,7 @@ function Hero(image, top, left, size, speed){
 
 let  leftLocation = 20,
     topLocation = 30;
-let hero = new Hero('pikachu.png', leftLocation, topLocation, 200, 40);
+let hero = new Hero('Zelda.jpg', leftLocation, topLocation, 200, 40);
 
 function start(){
   if ((hero.left < window.innerWidth - hero.size + leftLocation - hero.speed) && (hero.top <= topLocation + hero.speed)){
