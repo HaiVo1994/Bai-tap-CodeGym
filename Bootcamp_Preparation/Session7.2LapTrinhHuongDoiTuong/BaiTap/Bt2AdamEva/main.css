@@ -1,0 +1,36 @@
+div{
+    margin: 0 auto;
+    padding: 0 auto;
+}
+div.left{
+    width: 60%;
+    float: left;
+    text-align: center;
+}
+div.right{
+    width: 40%;
+    float: right;
+}
+div#main{
+    width: 100vmax;
+}
+div.person{
+    width: 45%;
+    border-style: dotted;
+    border-color: brown;
+    display: inline-block;
+}
+div#apple{
+    width: 30%;
+    border-style: groove;
+    border-color: red;
+    display: inline-block;
+    margin-top: 0px;
+}
+div#chat{
+    width: 60%;
+    border-style: solid;
+    border-color: darkgreen;
+    display: inline-block;
+    margin-top: 0px;
+}
