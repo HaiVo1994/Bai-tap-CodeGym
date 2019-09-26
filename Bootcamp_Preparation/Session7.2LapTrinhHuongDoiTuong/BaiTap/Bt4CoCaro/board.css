@@ -1,20 +1,20 @@
-#main{
-    width: 1000px;
-    display: table;
-    border-collapse: collapse;
-	border-spacing: 0;
+#mainBoard{
+    max-width: 1000px;
+    display: inline-block;
+    margin: 0px;
 }
-.caroRow{   
-    padding: 0px;
-    display: table-row;
+.caroRow{
+    display: block;
+    margin-bottom: 2px;
 }
 .caroCell{
     width: 20px;
     height: 20px;
     padding: 0px;
     display: inline-block;
-    margin: 5px;
+    margin-left: 8px;
     background-image: url("img/null.jpg");
+    text-align: center;
 }
 button.buttonGame{
     width: 25px;
