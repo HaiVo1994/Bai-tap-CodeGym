@@ -1,0 +1,29 @@
+#mainBoard{
+    max-width: 1200px;
+    display: inline-block;
+    margin: 0px;
+}
+.mineRow{
+    display: block;
+    margin-bottom: 2px;
+}
+.mineCell{
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    display: inline-block;
+    margin-left: 8px;
+    text-align: center;
+}
+button.buttonGame{
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+}
+img{
+    margin: 0px;
+}
+#pointBoard{
+    width: 250px;
+    float: right;
+}

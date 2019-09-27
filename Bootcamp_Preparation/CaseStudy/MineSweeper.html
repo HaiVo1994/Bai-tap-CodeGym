@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Mine Sweeper</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='board.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="mainBoard"></div>
+    <div id="pointBoard">
+        <p>Số bom ban đầu <span id="amountBomp"></span></p>
+        <p>Số cờ đã cắm <span id="amountFlag"></span></p>
+        <p>Số bom còn lại <span id="amountSpare"></p>
+        <p>Thời gian chơi <span id="time"></span> giây</p>
+        <p>
+            <p>Rộng <input type="number" id="inputWidth" value="16"></p>
+            <p>Dài <input type="number" id="inputHeigh" value="10"> </p>
+            <p>Số bom <input type="number" id="inputAmout" value="10"></p>
+            <p><input type="button" value="Tạo bàn chơi" onclick="start()"></p>
+        </p>
+    </div>
+    <script src='Board.js'></script>
+    <script>
+        function start(){
+            let height = parseInt($("#inputHeigh").val()),
+                width = parseInt($("#inputWidth").val()),
+                amount = parseInt($("#inputAmout").val());
+            height = height<5 ? 5:height;
+            width = width<5 ? 5:width;
+            height = height>20? 20:height;
+            width = width>40? 40:width;
+            amount = amount<10? 10:amount;
+            let limit = Math.floor((height * width) * 0.75);
+               
+            if (amount>limit)
+                amount = limit;
+            let show = new HtmlShowMineSweeper("gr1", width, height , amount),
+                time = 0;
+                show.createBoard("mainBoard");
+            $("#amountBomp").html(show.getAmount());
+            $("#amountFlag").html(0);
+            function plusTime(){
+                if (show.getState()){
+                    time++;
+                    $("#time").html(time);
+                }
+                else{
+                    clearInterval(plusTime);
+                }
+            }
+            setInterval(plusTime, 1000);
+            
+            for (let i=0; i<height; i++){
+                for (let j=0; j< width; j++){
+                    let id = "#" + i + "-" + j;
+                    $(id).mousedown(function(event){
+                        let mark = false; 
+                        switch (event.button){
+                            case 0:
+                                mark = false;
+                                break;
+                            case 1:
+                            default:
+                                mark = true;
+                        }
+                        show.click(i, j, mark);
+                        if (mark){
+                            let countClick = show.getCountClickCheck();
+                            $("#amountFlag").html(countClick);
+                            $("#amountSpare").html(amount - countClick);
+                        }     
+                    });
+                    $(id).dblclick(function(event){
+                        show.openAround(i, j);
+                    });
+                }   
+            }
+        }     
+    </script>
+</body>
+</html>
