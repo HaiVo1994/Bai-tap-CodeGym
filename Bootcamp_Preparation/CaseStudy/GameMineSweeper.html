@@ -11,20 +11,25 @@
 <body>
     <div id="mainBoard"></div>
     <div id="pointBoard">
-        <p>Số bom ban đầu <span id="amountBomp"></span></p>
-        <p>Số cờ đã cắm <span id="amountFlag"></span></p>
-        <p>Số bom còn lại <span id="amountSpare"></p>
-        <p>Thời gian chơi <span id="time"></span> giây</p>
         <p>
             <p>Rộng <input type="number" id="inputWidth" value="16"></p>
             <p>Dài <input type="number" id="inputHeigh" value="10"> </p>
             <p>Số bom <input type="number" id="inputAmout" value="10"></p>
-            <p><input type="button" value="Tạo bàn chơi" onclick="start()"></p>
+            <p><input type="button" value="Tạo Bàn Chơi Mới" id="createGame" onclick="start()"></p>
         </p>
+        <p>Số cờ đã cắm <span id="amountFlag"></span></p>
+        <p>Số bom còn lại <span id="amountSpare"></p>
+        <p>Thời gian chơi <span id="time"></span> giây</p>
+        
     </div>
-    <script src='Board.js'></script>
+    <script type="text/javascript" src='MineSweeper.js'></script>
+    <script type="text/javascript" src='HtmlShowMineSweeper.js'></script>
     <script>
         function start(){
+            $('#createGame').prop('disabled', true);
+            $("#inputHeigh").prop('disabled', true);
+            $("#inputWidth").prop('disabled', true);
+            $("#inputAmout").prop('disabled', true);
             let height = parseInt($("#inputHeigh").val()),
                 width = parseInt($("#inputWidth").val()),
                 amount = parseInt($("#inputAmout").val());
@@ -34,25 +39,31 @@
             width = width>40? 40:width;
             amount = amount<10? 10:amount;
             let limit = Math.floor((height * width) * 0.75);
-               
             if (amount>limit)
                 amount = limit;
+            $("#inputHeigh").val(height);
+            $("#inputWidth").val(width);
+            $("#inputAmout").val(amount);
+
             let show = new HtmlShowMineSweeper("gr1", width, height , amount),
                 time = 0;
-                show.createBoard("mainBoard");
-            $("#amountBomp").html(show.getAmount());
+            show.createBoard("mainBoard");
             $("#amountFlag").html(0);
+            $("#amountSpare").html(show.getAmount());
+            setInterval(plusTime, 1000);
             function plusTime(){
-                if (show.getState()){
+                if (!show.getState()){
+                    clearInterval(plusTime);
+                    $('#createGame').prop('disabled', false);
+                    $("#inputHeigh").prop('disabled', false);
+                    $("#inputWidth").prop('disabled', false);
+                    $("#inputAmout").prop('disabled', false);
+                }
+                else{
                     time++;
                     $("#time").html(time);
                 }
-                else{
-                    time = 0;
-                    clearInterval(plusTime);
-                }
-            }
-            setInterval(plusTime, 1000);
+            }      
             
             for (let i=0; i<height; i++){
                 for (let j=0; j< width; j++){
