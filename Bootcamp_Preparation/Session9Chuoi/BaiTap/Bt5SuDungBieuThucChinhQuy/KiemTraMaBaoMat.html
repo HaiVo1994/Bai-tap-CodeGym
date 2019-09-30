@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kiểm tra mã bảo mật</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script type="text/javascript" src="bieuThuc.js"></script>
+    <script>
+        let test = [
+            "124214",
+            "123",
+            "sd2",
+            "a234",
+            "4gr4",
+            "3219",
+            "3vd9",
+            "14A5",
+            "f323"
+        ],
+        long = test.length;
+        for (let i=0; i<long; i++){
+            document.write(test[i] + (checkPin(test[i])? " là mã bảo mật": " không là mã bảo mật") + "<br>");
+        }
+    </script>
+</body>
+</html>
