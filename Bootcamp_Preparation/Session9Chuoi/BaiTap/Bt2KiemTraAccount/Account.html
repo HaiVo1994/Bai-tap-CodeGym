@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kiểm tra Account</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        account = /^[_a-z0-9]{6,}$/;
+        function isAccount(str) {
+            if (account.test(str)) {
+                return true;
+            } 
+            return false;
+        }
+        let test1 = '123abc_',
+            test2 = '_abc123',
+            test3 = '______',
+            test4 = '123456',
+            test5 = 'abcdefg',
+            test6 = '.@',
+            test7 = '12345 ',
+            test8 = '1234_',
+            test9 = 'abcde ';
+        document.writeln(test1 + (isAccount(test1)? " Là account": " Không là account"));
+        document.writeln("<br>");
+        document.writeln(test2 + (isAccount(test2)? " Là account": " Không là account"));
+        document.writeln("<br>");
+        document.writeln(test3 + (isAccount(test3)? " Là account": " Không là account"));
+        document.writeln("<br>");
+        document.writeln(test4 + (isAccount(test4)? " Là account": " Không là account"));
+        document.writeln("<br>");
+        document.writeln(test5 + (isAccount(test5)? " Là account": " Không là account"));
+        document.writeln("<br>");
+        document.writeln(test6 + (isAccount(test6)? " Là account": " Không là account"));
+        document.writeln("<br>");
+        document.writeln(test7 + (isAccount(test7)? " Là account": " Không là account"));
+        document.writeln("<br>");
+        document.writeln(test8 + (isAccount(test8)? " Là account": " Không là account"));
+        document.writeln("<br>");
+        document.writeln(test9 + (isAccount(test9)? " Là account": " Không là account"));
+    </script>
+</body>
+</html>
