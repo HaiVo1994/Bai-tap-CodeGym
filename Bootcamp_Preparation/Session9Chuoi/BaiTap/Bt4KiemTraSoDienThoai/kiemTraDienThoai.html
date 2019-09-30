@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kiểm tra số điện thoại</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        phoneNumber = /^[(][0-9]{2}[)]-[(][0]{1}[0-9]+[)]$/;
+        function isPhoneNumber(str) {
+            if (phoneNumber.test(str)) {
+                return true;
+            } 
+            return false;
+        }
+        let test = new Array();
+        test[0] = "(84)-(0978489648)";
+        test[1] = "(a8)-(22222222)";
+        test[2] = "(28)-(222a2222)";
+        test[3] = "(48)-(0222b222)";
+        test[4] = "(58)-(02222222";
+        test[5] = "(58)-02222222";
+        test[6] = "(58-(02222222)";
+        test[7] = "84)-(0978489648)";
+
+        for (let i=0; i<test.length; i++){
+            document.write(test[i] + (isPhoneNumber(test[i])?" là số điện thoại":" không phải số điện thoại") + "<br>");
+        }
+    </script>
+</body>
+</html>
