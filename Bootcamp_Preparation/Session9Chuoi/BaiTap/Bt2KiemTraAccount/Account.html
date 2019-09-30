@@ -17,32 +17,20 @@
             } 
             return false;
         }
-        let test1 = '123abc_',
-            test2 = '_abc123',
-            test3 = '______',
-            test4 = '123456',
-            test5 = 'abcdefg',
-            test6 = '.@',
-            test7 = '12345 ',
-            test8 = '1234_',
-            test9 = 'abcde ';
-        document.writeln(test1 + (isAccount(test1)? " Là account": " Không là account"));
-        document.writeln("<br>");
-        document.writeln(test2 + (isAccount(test2)? " Là account": " Không là account"));
-        document.writeln("<br>");
-        document.writeln(test3 + (isAccount(test3)? " Là account": " Không là account"));
-        document.writeln("<br>");
-        document.writeln(test4 + (isAccount(test4)? " Là account": " Không là account"));
-        document.writeln("<br>");
-        document.writeln(test5 + (isAccount(test5)? " Là account": " Không là account"));
-        document.writeln("<br>");
-        document.writeln(test6 + (isAccount(test6)? " Là account": " Không là account"));
-        document.writeln("<br>");
-        document.writeln(test7 + (isAccount(test7)? " Là account": " Không là account"));
-        document.writeln("<br>");
-        document.writeln(test8 + (isAccount(test8)? " Là account": " Không là account"));
-        document.writeln("<br>");
-        document.writeln(test9 + (isAccount(test9)? " Là account": " Không là account"));
+        let test = new Array();
+        test[0] = '123abc_',
+        test[1] = '_abc123',
+        test[2] = '______',
+        test[3] = '123456',
+        test[4] = 'abcdefg',
+        test[5] = '.@',
+        test[6] = '12345 ',
+        test[7] = '1234_',
+        test[8] = 'abcde ';
+        for (let i=0; i<9; i++){
+            document.writeln(test[i] + (isAccount(test[i])? " Là account": " Không là account"));
+            document.writeln("<br>");
+        }
     </script>
 </body>
 </html>
