@@ -5,17 +5,14 @@ function isEmail(str) {
     } 
     return false;
 }
+let test = new Array();
+test[0] = "a@gmail.com",
+test[1] = "ab@yahoo.com",
+test[2] = "abc@hotmail.com",
+test[3] = "@gmail.com",
+test[4] = "ab@gmail.",
+test[5] = "@#abc@gmail.com";
 
-let t1 = "a@gmail.com",
-    t2 = "ab@yahoo.com",
-    t3 = "abc@hotmail.com",
-    t4 = "@gmail.com",
-    t5 = "ab@gmail.",
-    t6 = "@#abc@gmail.com";
-
-document.write(t1 + (isEmail(t1)?" là email":" không phải email") + "<br>");
-document.write(t2 + (isEmail(t2)?" là email":" không phải email") + "<br>");
-document.write(t3 + (isEmail(t3)?" là email":" không phải email") + "<br>");
-document.write(t4 + (isEmail(t4)?" là email":" không phải email") + "<br>");
-document.write(t5 + (isEmail(t5)?" là email":" không phải email") + "<br>");
-document.write(t6 + (isEmail(t6)?" là email":" không phải email") + "<br>");
+for (let i=0; i<6; i++){
+    document.write(test[i] + (isEmail(test[i])?" là email":" không phải email") + "<br>");
+}
