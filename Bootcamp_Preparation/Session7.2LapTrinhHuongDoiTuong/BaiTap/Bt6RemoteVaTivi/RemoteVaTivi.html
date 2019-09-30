@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Remote và Tivi</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <script>
+        class Remote{
+            constructor(id){
+                this.id = id;
+            }
+            openTivi(tivi){
+                if (tivi.checkRemote(this.id)){
+                    tivi.turnOnOff();
+                }
+            }
+            changeChannel(tivi, channel){
+                if (tivi.checkRemote(this.id)){
+                    tivi.changeChannel(channel);
+                }
+            }
+            changeVolume(tivi, volume){
+                if (tivi.checkRemote(this.id)){
+                    tivi.changeVolume(volume);
+                }
+            }
+        }
+
+        class Television{
+            constructor(channel, volume, state){
+                this.channel = channel;
+                this.volume = volume;
+                this.state = state;
+
+                this.RemoteApplly = [
+                   "123",
+                   "456",
+                   "789" 
+                ]
+            }
+            turnOnOff(){
+                this.state = this.state? false: true;
+            }
+            changeChannel(channel){
+                if (this.state)
+                    this.channel = channel;
+            }
+            changeVolume(volume){
+                if (this.state)
+                    this.volume += volume;
+            }
+            checkRemote(id){
+                for (let i=0; i< this.RemoteApplly.length; i++){
+                    if (this.RemoteApplly[i]===id)
+                        return true;
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
