@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kiểm tra tên lớp</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        classroom = /^[CAP][0-9]{4}[GHIKLM]$/;
+        function isClassroomName(str) {
+            if (classroom.test(str)) {
+                return true;
+            } 
+            return false;
+        }
+        let test =new Array();
+        test[0] = "C0318G",
+        test[1] = "M0318G",
+        test[2] = "P0323A",
+        test[3] = "C318G",
+        test[4] = "C023318G";
+        for (let i=0; i<5; i++){
+            document.writeln(test[i] + (isClassroomName(test[i])? " Là tên lớp": " Không là tên lớp"));
+            document.writeln("<br>");
+        }
+    </script>
+</body>
+</html>
