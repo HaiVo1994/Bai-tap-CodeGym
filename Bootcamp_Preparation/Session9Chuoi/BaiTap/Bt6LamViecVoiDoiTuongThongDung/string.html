@@ -13,7 +13,9 @@
     <script>
         let string = "Tôi yêu ngôn ngữ lập trình Javascript";
         document.write("Số chữ a xuất hiện trong chuỗi: " + coutA(string) + "<br>");
-        document.write(cutString(string) + "<br>");
+        let arr = cutString(string);
+        document.write(arr + "<br>");
+        document.write("Số từ trong chuỗi: " + arr.length + "<br>");
         string = string.replace("Javascript", "Typescript");
         document.write(string + "<br>");
     </script>
