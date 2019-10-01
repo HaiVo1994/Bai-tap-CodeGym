@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Mine Sweeper</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='board.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="mainBoard">
+        <canvas id="canvasBoard" width="1200px" height="600px"></canvas>
+    </div>
+    <div id="pointBoard">
+        <div class="import">
+            <p>Game MineSweeper</p>
+            <div>
+                <div class="import--note">
+                    <p>Rộng</p>
+                </div>
+                <div class="import--enter">
+                    <input type="number" id="inputWidth" value="16">
+                </div>
+            </div>
+            <div>
+                <div class="import--note">
+                    <p>Cao</p>
+                </div>
+                <div class="import--enter">
+                    <input type="number" id="inputHeigh" value="10">
+                </div>
+            </div>
+            <div>
+                <div class="import--note">
+                    <p>Số bom</p>
+                </div>
+                <div class="import--enter">
+                    <input type="number" id="inputAmout" value="10">      
+                </div>
+            </div>
+            <input type="button" value="Tạo Bàn Chơi Mới" id="createGame" onclick="start()">
+        </div>
+        <div class="export">           
+            <p>Số cờ đã cắm <span id="amountFlag"></span></p>
+            <p>Số cờ chưa cắm <span id="amountSpare"></p>
+            <p>Thời gian chơi <span id="time"></span> giây</p>
+        </div>     
+    </div>
+    <div id="imageToDraw"></div>
+    <script type="text/javascript" src='MineSweeper.js'></script>
+    <script type="text/javascript" src='CanvasShowMineSweeper.js'></script>
+    <script>
+        function disabledInput(agree){
+            $('#createGame').prop('disabled', agree);
+            $("#inputHeigh").prop('disabled', agree);
+            $("#inputWidth").prop('disabled', agree);
+            $("#inputAmout").prop('disabled', agree);
+        }
+        function start(){
+            disabledInput(true);
+            let canvasTable = $("#canvasBoard")[0],
+                canvasDraw = canvasTable.getContext("2d"),
+                canvasLocation = canvasTable.getBoundingClientRect(),
+                height = parseInt($("#inputHeigh").val()),
+                width = parseInt($("#inputWidth").val()),
+                amount = parseInt($("#inputAmout").val());
+            height = height<5 ? 5:height;
+            width = width<5 ? 5:width;
+            height = height>24? 24:height;
+            width = width>48? 48:width;
+            amount = amount<10? 10:amount;
+            let limit = Math.floor((height * width) * 0.75);
+            if (amount>limit)
+                amount = limit;
+            $("#inputHeigh").val(height);
+            $("#inputWidth").val(width);
+            $("#inputAmout").val(amount);
+            canvasDraw.clearRect(0, 0, canvasTable.width, canvasTable.height);
+            let show = new CanvasShowMineSweeper("gr1", width, height , amount, "canvasBoard"),
+                time = 0;
+            show.prepareImg("imageToDraw");
+            setTimeout(function(){
+                show.createBoard();
+                $("#amountFlag").html(0);
+                $("#amountSpare").html(show.getAmount());
+                let setTime = setInterval(function(){
+                    if (!show.getState()){
+                        clearInterval(setTime);
+                        disabledInput(false);
+                    }
+                    else{
+                        time++;
+                        $("#time").html(time);
+                    }
+                }, 1000);   
+            },10);
+            
+
+            $("#canvasBoard").mousedown(function(event){
+                let cx = event.pageX - canvasLocation.top,
+                    cy = event.pageY - canvasLocation.left
+                    mark = false; 
+                switch (event.button){
+                    case 0:
+                        mark = false;
+                        break;
+                    case 1:
+                    default:
+                        mark = true;
+                }
+                let x = parseInt(cx/SQUARE_SIZE),
+                    y = parseInt(cy/SQUARE_SIZE);
+                if ((x < width) && (y < height)){
+                    show.click(y, x, mark);
+                    if (mark){
+                        let countClick = show.getCountClickCheck();
+                        $("#amountFlag").html(countClick);
+                        $("#amountSpare").html(amount - countClick);
+                    }
+                }
+            });
+            $("#canvasBoard").dblclick(function(event){
+                let cx = event.pageX - canvasLocation.top,
+                    cy = event.pageY - canvasLocation.left,
+                    x = parseInt(cx/SQUARE_SIZE),
+                    y = parseInt(cy/SQUARE_SIZE);
+                if ((x < width) && (y < height)){
+                    show.openAround(y, x);
+                }
+            });
+        }
+       
+    </script>
+</body>
+</html>

@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(255, 235, 180);
+}
 #mainBoard{
     width: 1200px;
     height: 600px;
@@ -20,20 +23,29 @@
 button.buttonGame{
     width: 25px;
     height: 25px;
-    padding: 0px;
+    padding: 0;
+    background-color: none;
+    border: none;
 }
 img{
-    margin: 0px;
+    margin: 0 auto;
 }
 #pointBoard{
+    background-color: rgb(195, 255, 167);
     width: 250px;
     float: right;
+    border-color:rgb(27, 129, 73);
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
 }
 span{
     color: red;
 }
 input{
-    border-color:rgb(79, 184, 79);
+    border-color:rgb(1, 53, 17);
     border-width: 3px;
     border-style: solid;
     border-radius: 5px;
@@ -41,22 +53,20 @@ input{
     text-align: center;
 }
 input#createGame{
-    background-color: rgb(56, 231, 56);
-    color: rgb(39, 83, 9);
+    background-color: rgb(1, 53, 17);
+    color: rgb(101, 218, 24);
     font-size: large;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 45px;
-    width: 100%;
-}
-#pointBoard{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: large;
+    width: 80%;
 }
 .import{
     text-align: center;
 }
 .export{
     text-align: justify;
+    width: 80%;
+    margin: 0 auto;
 }
 .import--note, .import--enter{
     display: inline-block;
@@ -69,4 +79,12 @@ input#createGame{
 }
 .import--enter{
     width: 70%;
+}
+
+#canvasBoard{
+    background-color: none;
+    border: none;
+}
+#imageToDraw{
+    display: none;
 }

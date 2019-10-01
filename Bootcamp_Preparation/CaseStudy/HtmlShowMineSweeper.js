@@ -146,6 +146,5 @@ class HtmlShowMineSweeper{
             this.click(x + 1, y - 1, mark);
             this.click(x - 1, y + 1, mark);
         }
-        
     }
 }
