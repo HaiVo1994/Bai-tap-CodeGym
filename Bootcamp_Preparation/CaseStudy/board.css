@@ -1,11 +1,13 @@
 #mainBoard{
-    max-width: 1200px;
+    width: 1200px;
+    height: 600px;
     display: inline-block;
     margin: 0px;
+    text-align: center;
 }
 .mineRow{
     display: block;
-    margin-bottom: 2px;
+    margin: 0 auto;
 }
 .mineCell{
     width: 20px;
