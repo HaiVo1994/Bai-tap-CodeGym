@@ -113,7 +113,9 @@ class HtmlShowMineSweeper{
             if (check === -1){
                 this.state = false;
                 this.openAllCell();
-                alert("Bạn đã thua");
+                setTimeout(function(){
+                    alert("Bạn đã thua");
+                }, 500);
             }
             else if (check === 1){
                 this.changeImg(x, y, false);
@@ -123,7 +125,9 @@ class HtmlShowMineSweeper{
                 if (this.game.checkWin()){
                     this.openAllCell();
                     this.state = false;
-                    alert("Bạn đã thắng");
+                    setTimeout(function(){
+                        alert("Bạn đã thắng");
+                    }, 500);
                 }
             }
         }    

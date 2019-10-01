@@ -27,3 +27,44 @@ img{
     width: 250px;
     float: right;
 }
+span{
+    color: red;
+}
+input{
+    border-color:rgb(79, 184, 79);
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 5px;
+    height: 25px;
+    text-align: center;
+}
+input#createGame{
+    background-color: rgb(56, 231, 56);
+    color: rgb(39, 83, 9);
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 45px;
+    width: 100%;
+}
+#pointBoard{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+.import{
+    text-align: center;
+}
+.export{
+    text-align: justify;
+}
+.import--note, .import--enter{
+    display: inline-block;
+}
+.import--note{
+    width: 25%;
+}
+.import--note p{
+    color: rgb(82, 83, 56);
+}
+.import--enter{
+    width: 70%;
+}
