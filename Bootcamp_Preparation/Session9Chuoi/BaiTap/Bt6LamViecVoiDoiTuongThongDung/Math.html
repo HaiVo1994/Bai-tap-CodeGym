@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Math</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <script type="text/javascript" src="doiTuong.js"></script>
+    <script>
+        let min = 0,
+            max = 10;
+        document.write("Số ngẫu nhiên từ " + min + " - " + max + " = " + randomNumber(min, max) + "<br>");
+        max = 100;
+        document.write("Số ngẫu nhiên từ " + min + " - " + max + " = " + randomNumber(min, max) + "<br>");
+        max = 400;
+        document.write("Số ngẫu nhiên từ " + min + " - " + max + " = " + randomNumber(min, max) + "<br>");
+        min = 50;
+        max = 100;
+        document.write("Số ngẫu nhiên từ " + min + " - " + max + " = " + randomNumber(min, max) + "<br>");
+
+        let arr = [5, 7, 9];
+        document.write("Số nhỏ nhất trong các số " + arr + " là: " + findMin(arr) + "<br>");
+
+        let num = 53;
+        document.write("Lũy thừa " + num + " là: " + cumulative(num) + "<br>");
+
+        let radius = 5;
+        document.write("Hình tròn bán kính " + radius + " diện tích là: " + getAreaCircle(radius) + "<br>");
+
+    </script>
+</body>
+</html>

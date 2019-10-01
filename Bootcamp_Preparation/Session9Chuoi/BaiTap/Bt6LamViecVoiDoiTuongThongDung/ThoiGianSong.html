@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Thời gian sống</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script type="text/javascript" src="doiTuong.js"></script>
+    <script>
+        let birthDay = new Date("September 22, 1994 3:33:33"),
+            liveLong = liveTime(birthDay);
+        document.write("Tôi đã sống được: <br>");
+        document.write(liveLong[0] + " năm <br>");
+        document.write(liveLong[1] + " tháng <br>");
+        document.write(liveLong[2] + " ngày <br>");
+        document.write(liveLong[3] + " giờ <br>");
+        document.write(liveLong[4] + " phút <br>");
+        document.write(liveLong[5] + " giây <br>");
+    </script>
+</body>
+</html>
