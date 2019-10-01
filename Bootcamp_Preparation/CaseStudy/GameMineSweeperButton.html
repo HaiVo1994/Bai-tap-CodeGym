@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Mine Sweeper</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='board.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="mainBoard"></div>
+    <div id="pointBoard">
+        <div class="import">
+            <p>Game MineSweeper</p>
+            <div>
+                <div class="import--note">
+                    <p>Rộng</p>
+                </div>
+                <div class="import--enter">
+                    <input type="number" id="inputWidth" value="16">
+                </div>
+            </div>
+            <div>
+                <div class="import--note">
+                    <p>Cao</p>
+                </div>
+                <div class="import--enter">
+                    <input type="number" id="inputHeigh" value="10">
+                </div>
+            </div>
+            <div>
+                <div class="import--note">
+                    <p>Số bom</p>
+                </div>
+                <div class="import--enter">
+                    <input type="number" id="inputAmout" value="10">      
+                </div>
+            </div>
+            <input type="button" value="Tạo Bàn Chơi Mới" id="createGame" onclick="start()">
+        </div>
+        <div class="export">           
+            <p>Số cờ đã cắm <span id="amountFlag"></span></p>
+            <p>Số cờ chưa cắm <span id="amountSpare"></p>
+            <p>Thời gian chơi <span id="time"></span> giây</p>
+        </div>     
+    </div>
+    <script type="text/javascript" src='MineSweeper.js'></script>
+    <script type="text/javascript" src='HtmlShowMineSweeper.js'></script>
+    <script>
+        function disabledInput(agree){
+            $('#createGame').prop('disabled', agree);
+            $("#inputHeigh").prop('disabled', agree);
+            $("#inputWidth").prop('disabled', agree);
+            $("#inputAmout").prop('disabled', agree);
+        }
+        function start(){
+            disabledInput(true);
+            let height = parseInt($("#inputHeigh").val()),
+                width = parseInt($("#inputWidth").val()),
+                amount = parseInt($("#inputAmout").val());
+            height = height<5 ? 5:height;
+            width = width<5 ? 5:width;
+            height = height>20? 20:height;
+            width = width>40? 40:width;
+            amount = amount<10? 10:amount;
+            let limit = Math.floor((height * width) * 0.75);
+            if (amount>limit)
+                amount = limit;
+            $("#inputHeigh").val(height);
+            $("#inputWidth").val(width);
+            $("#inputAmout").val(amount);
+
+            let show = new HtmlShowMineSweeper("gr1", width, height , amount),
+                time = 0;
+            show.createBoard("mainBoard");
+            $("#amountFlag").html(0);
+            $("#amountSpare").html(show.getAmount());
+            let setTime = setInterval(function(){
+                if (!show.getState()){
+                    clearInterval(setTime);
+                    disabledInput(false);
+                    show = null;
+                }
+                else{
+                    time++;
+                    $("#time").html(time);
+                }
+            }, 1000);   
+            
+            for (let i=0; i<height; i++){
+                for (let j=0; j< width; j++){
+                    let id = "#" + i + "-" + j;
+                    $(id).mousedown(function(event){
+                        let mark = false; 
+                        switch (event.button){
+                            case 0:
+                                mark = false;
+                                break;
+                            case 1:
+                            default:
+                                mark = true;
+                        }
+                        show.click(i, j, mark);
+                        if (mark){
+                            let countClick = show.getCountClickCheck();
+                            $("#amountFlag").html(countClick);
+                            $("#amountSpare").html(amount - countClick);
+                        }     
+                    });
+                    $(id).dblclick(function(event){
+                        show.openAround(i, j);
+                    });
+                }   
+            }
+        }     
+    </script>
+</body>
+</html>
