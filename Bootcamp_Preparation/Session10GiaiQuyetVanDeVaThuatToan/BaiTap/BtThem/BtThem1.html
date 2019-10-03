@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <script src='BtThem1.js'></script>
+    <script>
+        let string = "",
+            char = "";
+        do{
+            string = prompt("Nhập chuỗi");
+        }while(string.length<10 || string == "" || string==null);
+        do{
+            char = prompt("Nhập ký tự cần tìm");
+        }while(char.length>1 || char == "" || char == null);
+        document.write("Chuỗi được nhập: " + string);
+        document.write("<br>Chữ cần tìm: " + char + "<br>");
+        let result = find(string, char),
+            print = result[0]!==-1? (" xuất hiện ở các vị trí" + result): " không xuất hiện trong mảng";
+        document.write("Ký tự " + char + print);
+    </script>
+</body>
+</html>
