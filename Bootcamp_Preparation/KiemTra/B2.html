@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Câu 2</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body onload="load()">
+    <script>
+        function tryAddFromArray(arr, value, index){
+            let long = arr.length;
+            if (index===long){
+                arr[long] = value;
+            }
+            else if (index>=0 && index<long){
+                for (let i=long; i>index; i--){
+                    arr[i] = arr[i-1];
+                }
+                arr[index]=value;
+            }
+        }
+        function load(){
+            let arr = [12, 6, 3, 7, 21, 5, 7],
+                value = 0,
+                index = 0;
+            do{
+                value = parseInt(prompt("Enter value add:"));
+            }while (!Number.isInteger(value));
+            do{
+                index = parseInt(prompt("Enter location add:"));
+            }while (!Number.isInteger(index));
+            document.write("Array: " + arr + " | length: " + arr.length + "<br>");
+            document.write("Location add: " + index + " | Value add: " + value + "<br>");
+            tryAddFromArray(arr, value, index);
+            document.write("New array: " + arr + " | length: " + arr.length);
+        }
+    </script>
+</body>
+</html>

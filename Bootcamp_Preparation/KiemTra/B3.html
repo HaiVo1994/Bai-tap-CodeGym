@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Câu 3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body onload="load()">
+    <script>
+        function isPerfectNumber(num){
+            let check = parseInt(sumDivisor(num)/2);
+            return check == num;
+        }
+        function sumDivisor(num){
+            let sum = 1;
+            for (let i=2; i<=num; i++){
+                if (num%i === 0)
+                    sum += i;
+            }
+            return sum;
+        }
+        function load(){
+            let num = 0;
+            do{
+                num = parseInt(prompt("Enter number:"));
+            }while ((!Number.isInteger(num)) || (num<1));
+            let messenge = isPerfectNumber(num)? " is perfect number": " isn't perfect number";
+            document.write(num + messenge);
+        }
+    </script>
+</body>
+</html>

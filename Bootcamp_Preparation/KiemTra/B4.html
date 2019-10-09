@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Câu 4</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        canvas{
+            background-color: rgb(245, 237, 227);
+        }
+    </style>
+</head>
+<body onload="load()">
+    <canvas width="1000px" height="600px" id="drawCanvas"></canvas>
+    <div id="showImage" style="display: none"></div>
+    <script>
+        class Animal{
+            constructor(x, y, name, width, height, image){
+                this.x = x;
+                this.y = y;
+                this.name = name;
+                this.width = width;
+                this.height = height;
+                this.image = image;
+            }
+            render(canvas){
+                let draw = canvas.getContext("2d"),
+                    img = document.getElementById("animal-" + this.name);
+                    draw.drawImage(img, this.x, this.y, this.width, this.height);
+            }
+
+            prepare(idShow){
+                let innerHtml = "<img width='" + this.width + "px' height='" + this.height 
+                            + "px' src='" + this.image + "' id='animal-"+ this.name+"'>";
+                document.getElementById(idShow).innerHTML = innerHtml;
+            }
+        }
+        
+        function load(){
+            let lion = new Animal(50, 50, "Lion", 200, 100, 
+                        "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg"),
+                canvas = document.getElementById("drawCanvas");
+            lion.prepare("showImage");
+            setTimeout(function(){
+                lion.render(canvas);
+            }, 500);
+        }
+    </script>
+</body>
+</html>
